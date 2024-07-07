@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
-import { pedirItemPorId } from "../../components/helpers/pedirDatos";
-import ItemDetail from "../itemDetail/itemDetail"
+import ItemDetail from "../itemDetail/itemDetail";
 import { useParams } from "react-router-dom";
+import { doc, getDoc} from "firebase/firestore";
+import { db } from "../../firebase/client";
+
 
 const ItemDetailContainer = () => {
 
   const [item, setItem] = useState(null);
   const id = useParams().id;
 
-  useEffect (() => {
-    
-    pedirItemPorId(Number(id))
-      .then((res) => {
-        setItem(res);
+  useEffect(() => {
+
+    const docRef = doc(db, "productos", id);
+    getDoc(docRef)
+      .then((resp) => {
+        setItem(
+          { ...resp.data(), id: resp.id }
+        );
       })
+
   }, [id])
-  
+
   return (
     <div>
       {item && <ItemDetail item={item} />}

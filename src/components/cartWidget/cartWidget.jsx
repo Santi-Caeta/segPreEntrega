@@ -1,17 +1,20 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { CartContext } from '../../context/cartContext'
+import React, { useContext } from 'react';
+import { Badge } from 'antd';
+import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/cartContext';
 
 const CartWidget = () => {
 
-    const { cantidadEnCarrito } = useContext(CartContext);
+  const { cantidadEnCarrito } = useContext(CartContext);
 
   return (
     <div>
-        <Link className="menu-link" to="/carrito">
-            Carrito
-            <span className="numerito">{cantidadEnCarrito()}</span>
-        </Link>
+      <Link to="/carrito">
+        <Badge count={1}>
+          <ShoppingCartOutlined />
+        </Badge>
+      </Link>
     </div>
   )
 };

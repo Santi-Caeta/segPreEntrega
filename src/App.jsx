@@ -7,6 +7,7 @@ import Nosotros from './components/nosotros/nosotros';
 import Contacto from './components/contacto/contacto';
 import { CartProvider } from './context/cartContext';
 import Carrito from './components/cart/carrito';
+import Checkout from './components/check/checkOut';
 
 function App() {
   return (
@@ -23,11 +24,12 @@ function App() {
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/carrito" element={<Carrito />} />
+            <Route path="/checkout" element={<Checkout/>} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
     </div>
   )
-}
+};
 
 export default App

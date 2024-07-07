@@ -6,7 +6,7 @@
 }
 
 :root {
-  --clr-main: #c56cee;
+  --clr-main: #12a14b;
   --clr-main-light: #efdaf9;
 }
 
@@ -111,7 +111,7 @@
 
 .categoria {
   font-size: .8rem;
-  color: #424242;
+  color: #7777;
   margin-top: 1rem;
 }
 
